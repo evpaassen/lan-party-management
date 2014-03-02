@@ -3,6 +3,9 @@
 namespace LPM_Tournament\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use LPM_Tournament\InputFilter\TournamentInputFilter;
+use Zend\InputFilter\InputFilterAwareInterface;
+use Zend\InputFilter\InputFilterInterface;
 
 
 /**
@@ -11,11 +14,17 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="tournament_tournament")
  */
-class Tournament {
+class Tournament implements InputFilterAwareInterface {
 
     const STATE_CLOSED = 'CLOSED';
     const STATE_REGISTRATION = 'REGISTRATION';
     const STATE_FINISHED = 'FINISHED';
+
+
+    /**
+     * @var InputFilterInterface
+     */
+    protected $inputFilter;
 
 
     /**
@@ -152,5 +161,17 @@ class Tournament {
      */
     public function getTeams() {
         return $this->teams;
+    }
+
+    public function setInputFilter(InputFilterInterface $inputFilter) {
+        throw new \Exception("This property is read-only.");
+    }
+
+    public function getInputFilter() {
+        if ($this->inputFilter == NULL) {
+            $this->inputFilter = new TournamentInputFilter();
+        }
+
+        return $this->inputFilter;
     }
 }
