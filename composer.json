@@ -1,16 +1,26 @@
 {
-    "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for ZF2",
-    "license": "BSD-3-Clause",
-    "keywords": [
-        "framework",
-        "zf2"
+    "name": "evpaassen/lan-party-management",
+    "description": "Web based LAN Party Management software.",
+    "version": "1.0.0-dev",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Erik van Paassen",
+            "email": "erik@evpwebdesign.nl",
+            "homepage": "http://erikvanpaassen.nl",
+            "role": "Developer"
+        }
     ],
-    "homepage": "http://framework.zend.com/",
+    "support": {
+        "source": "https://github.com/evpaassen/lan-party-management",
+        "issues": "https://github.com/evpaassen/lan-party-management/issues",
+        "wiki": "https://github.com/evpaassen/lan-party-management/wiki"
+    },
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.2.*",
-        "doctrine/doctrine-orm-module": "0.*",
+        "doctrine/doctrine-module": "0.8.*",
+        "doctrine/doctrine-orm-module": "0.8.*",
         "neilime/zf2-twb-bundle": "dev-master"
     }
 }
