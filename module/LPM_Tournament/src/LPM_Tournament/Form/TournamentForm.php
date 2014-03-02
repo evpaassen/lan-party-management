@@ -2,8 +2,6 @@
 
 namespace LPM_Tournament\Form;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use FEL_Leden_Admin\Hydrator\PraktijkHydrator;
 use LPM_Tournament\Entity\Tournament;
 use Zend\Form\Form;
 
