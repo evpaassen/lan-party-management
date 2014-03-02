@@ -6,7 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 
-class IndexController extends AbstractActionController {
+class TournamentController extends AbstractActionController {
 
     /**
      * @return \Doctrine\ORM\EntityManager
@@ -16,6 +16,11 @@ class IndexController extends AbstractActionController {
     }
 
     public function indexAction() {
-        return new ViewModel();
+        $tournaments = $this->getEntityManager()->getRepository('\LPM_Tournament\Entity\Tournament')
+                ->findBy(array('published' => TRUE), array('id' => 'DESC'));
+
+        return new ViewModel(array(
+            'tournaments' => $tournaments
+        ));
     }
 }

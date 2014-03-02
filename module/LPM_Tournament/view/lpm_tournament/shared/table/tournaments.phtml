@@ -1,0 +1,21 @@
+<table class="table table-striped table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Team size</th>
+        <th>State</th>
+    </tr>
+    <?php
+    if (!count($this->praktijken)) {
+        ?>
+        <tr>
+            <td colspan="4">There aren't any published tournaments.</td>
+        </tr>
+    <?php
+    } else {
+        $this->partialLoop()->setObjectKey('tournament');
+        echo $this->partialLoop('lpm_tournament/shared/table/_tournaments-row.phtml', $this->tournaments);
+        $this->partialLoop()->setObjectKey(NULL);
+    }
+    ?>
+</table>

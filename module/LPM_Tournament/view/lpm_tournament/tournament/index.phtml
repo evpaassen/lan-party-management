@@ -1,0 +1,11 @@
+<h1>Tournaments</h1>
+
+<div class="action-bar">
+    <button class="btn" type="button" onclick="location.href='<?php echo $this->url('lpm_tournament/default', array('controller' => 'tournament', 'action' => 'add')) ?>'">
+        <span class="glyphicon glyphicon-plus"></span> &nbsp; New tournament
+    </button>
+</div>
+
+<?php
+echo $this->partial('lpm_tournament/shared/table/tournaments.phtml', array('tournaments' => $this->tournaments));
+?>

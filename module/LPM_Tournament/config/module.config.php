@@ -14,7 +14,7 @@ return array(
                     'route'    => '/tournament',
                     'defaults' => array(
                         '__NAMESPACE__' => 'LPM_Tournament\Controller',
-                        'controller'    => 'Index',
+                        'controller'    => 'Tournament',
                         'action'        => 'index',
                     ),
                 ),
@@ -47,7 +47,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'LPM_Tournament\Controller\Index' => 'LPM_Tournament\Controller\IndexController',
+            'LPM_Tournament\Controller\Tournament' => 'LPM_Tournament\Controller\TournamentController',
         ),
     ),
     'view_manager' => array(

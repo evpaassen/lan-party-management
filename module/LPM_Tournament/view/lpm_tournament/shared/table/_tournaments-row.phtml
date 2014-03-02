@@ -1,0 +1,10 @@
+<tr>
+    <td>
+        <a href="<?php echo $this->escapeHtml($this->url('lpm_tournament/default', array('controller' => 'tournament', 'action' => 'show', 'id' => $this->tournament->getId()))) ?>">
+            <?php echo $this->escapeHtml($this->tournament->getId()) ?>
+        </a>
+    </td>
+    <td><?php echo $this->escapeHtml($this->tournament->getName()) ?></td>
+    <td><?php echo $this->escapeHtml($this->tournament->getTeamSize()) ?></td>
+    <td><?php echo $this->escapeHtml($this->tournament->getState()) ?></td>
+</tr>
