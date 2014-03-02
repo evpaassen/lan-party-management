@@ -2,7 +2,7 @@
 
 <?php
 $form = $this->form;
-$form->setAttribute('action', $this->url('lpm_tournament/default', array('controller' => 'tournament', 'action' => 'add')));
+$form->setAttribute('action', $this->url('lpm_tournament/tournament_add'));
 $form->prepare();
 
 echo $this->form($form);

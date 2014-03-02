@@ -28,8 +28,24 @@ class TournamentController extends AbstractActionController {
     }
 
     public function addAction() {
-        $tournament = new Tournament();
+        return $this->handleTournamentForm(new Tournament());
+    }
 
+    public function editAction() {
+        $id = $this->params()->fromRoute('id');
+
+        /** @var $tournament Tournament */
+        $tournament = $this->getEntityManager()->getRepository('\LPM_Tournament\Entity\Tournament')->find($id);
+
+        if ($tournament == null) {
+            $this->getResponse()->setStatusCode(404);
+            return;
+        }
+
+        return $this->handleTournamentForm($tournament);
+    }
+
+    protected function handleTournamentForm(Tournament $tournament) {
         $form = new TournamentForm();
         $form->setAttribute('method', 'post');
 
@@ -49,6 +65,18 @@ class TournamentController extends AbstractActionController {
             }
         }
 
-        return array('form' => $form);
+        return array('form' => $form, 'tournamentId' => $tournament->getId());
+    }
+
+    public function showAction() {
+        $id = $this->params()->fromRoute('id');
+        $tournament = $this->getEntityManager()->getRepository('\LPM_Tournament\Entity\Tournament')->find($id);
+
+        if ($tournament == null) {
+            $this->getResponse()->setStatusCode(404);
+            return;
+        }
+
+        return array('tournament' => $tournament);
     }
 }

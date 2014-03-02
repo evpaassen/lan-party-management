@@ -1,0 +1,41 @@
+<h1>
+    <span class="title-prefix">Tournament</span>
+    <?php echo $this->escapeHtml($this->tournament->getName()) ?>
+</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4 class="panel-title">Settings</h4></div>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Published</th>
+                    <td><?php echo $this->tournament->getPublished() ? 'Yes' : 'No' ?></td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>
+                        <?php echo $this->escapeHtml($this->tournament->getState()) ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Team size</th>
+                    <td>
+                        <?php echo $this->escapeHtml($this->tournament->getTeamSize()) ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+</div>
+
+<div class="action-bar">
+    <button class="btn" type="button" onclick="location.href='<?php echo $this->url('lpm_tournament/tournament_edit', array('id' => $this->tournament->getId())) ?>'">
+        <span class="glyphicon glyphicon-pencil"></span> &nbsp; Edit tournament
+    </button>
+</div>

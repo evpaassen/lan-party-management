@@ -1,6 +1,6 @@
 <tr>
     <td>
-        <a href="<?php echo $this->escapeHtml($this->url('lpm_tournament/default', array('controller' => 'tournament', 'action' => 'show', 'id' => $this->tournament->getId()))) ?>">
+        <a href="<?php echo $this->escapeHtml($this->url('lpm_tournament/tournament_show', array('id' => $this->tournament->getId()))) ?>">
             <?php echo $this->escapeHtml($this->tournament->getId()) ?>
         </a>
     </td>

@@ -4,10 +4,6 @@ namespace LPM_Tournament;
 return array(
     'router' => array(
         'routes' => array(
-            // The following is a route to simplify getting started creating
-            // new controllers and actions without needing to create a new
-            // module. Simply drop new controllers in, and you can access them
-            // using the path /tournament/:controller/:action
             'lpm_tournament' => array(
                 'type'    => 'Literal',
                 'options' => array(
@@ -23,12 +19,50 @@ return array(
                     'default' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
+                            'route'    => '/:controller[/:action][/:id]',
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'         => '[0-9]+',
                             ),
                             'defaults' => array(
+                                'action' => 'index',
+                            ),
+                        ),
+                    ),
+                    'tournament_add' => array(
+                        'type'    => 'Literal',
+                        'options' => array(
+                            'route'    => '/add',
+                            'defaults' => array(
+                                'controller' => 'Tournament',
+                                'action'     => 'add'
+                            ),
+                        ),
+                    ),
+                    'tournament_edit' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/edit/:id',
+                            'constraints' => array(
+                                'id' => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Tournament',
+                                'action'     => 'edit'
+                            ),
+                        ),
+                    ),
+                    'tournament_show' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/:id',
+                            'constraints' => array(
+                                'id' => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Tournament',
+                                'action'     => 'show'
                             ),
                         ),
                     ),

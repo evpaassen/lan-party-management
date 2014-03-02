@@ -1,0 +1,8 @@
+<h1>Edit tournament</h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('lpm_tournament/tournament_edit', array('id' => $this->tournamentId)));
+$form->prepare();
+
+echo $this->form($form);
